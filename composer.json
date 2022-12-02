@@ -1,0 +1,42 @@
+{
+    "name": "northwestern-sysdev/tdx-php-sdk",
+    "description": "An SDK for the TeamDynamix REST APIs",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Northwestern\\Sysdev\\TeamDynamix\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Northwestern\\SysDev\\TeamDynamix\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nick Evans",
+            "email": "nick.evans@northwestern.edu"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.1",
+        "ext-json": "*",
+        "lcobucci/jwt": "^4.2",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.10",
+        "phpunit/phpunit": "^9.5",
+        "php-coveralls/php-coveralls": "^2.5",
+        "laravel/pint": "^1.2"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Northwestern\\Sysdev\\TeamDynamix\\Laravel\\TeamDynamixProvider"
+            ]
+        }
+    }
+}

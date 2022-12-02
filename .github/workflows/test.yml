@@ -1,0 +1,65 @@
+name: PHPUnit Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        php-versions: ['8.1', '8.2']
+
+    name: PHP ${{ matrix.php-versions }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@2.22.0
+        with:
+          php-version: ${{ matrix.php-versions }}
+          coverage: xdebug
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3.0.11
+        with:
+          path: vendor
+          key: php-${{ matrix.php-versions }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            php-${{ matrix.php-versions }}
+
+      - name: Install dependencies
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Configure matchers
+        uses: mheap/phpunit-matcher-action@v1
+
+      - name: Run Tests
+        run: php vendor/bin/phpunit --log-junit=.build/junit.xml --coverage-clover .build/clover.xml --teamcity
+
+      - uses: EnricoMi/publish-unit-test-result-action@v2
+        if: github.actor != 'dependabot[bot]' && always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          files: .build/junit.xml
+          check_name: PHP ${{ matrix.php-versions }} Test Results
+
+      - name: Record Coverage
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: php vendor/bin/php-coveralls --coverage_clover=.build/clover.xml --json_path=.build/coveralls-upload.json
