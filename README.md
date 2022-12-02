@@ -1,4 +1,4 @@
-# TeamDyamix SDK for PHP
+# TeamDyamix SDK for PHP [![Latest Stable Version](http://poser.pugx.org/phpunit/phpunit/v)](https://packagist.org/packages/phpunit/phpunit) [![Coverage Status](https://coveralls.io/repos/github/NIT-Administrative-Systems/tdx-php-sdk/badge.svg?t=tcLuCD)](https://coveralls.io/github/NIT-Administrative-Systems/tdx-php-sdk) 
 This is an unofficial PHP SDK for the [TeamDynamix REST APIs](https://solutions.teamdynamix.com/TDWebApi/).
 
 A provider for Laravel is included, although this package can be used in non-Laravel PHP projects too.
