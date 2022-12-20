@@ -7,5 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.0] - 2022-01-02
+## [v0.2.0] - 2022-12-20
+This version includes breaking API changes. Until we reach v1.0.0, that may be the case. Sorry!
+
+### Fixes
+- Changes to the `CreateTicket` entity, including updated parameter names & types. This corrects a problem with creating a ticket assigned to a group.
+
+## [v0.1.0] - 2022-12-02
 - Alpha release with support for a few APIs.
