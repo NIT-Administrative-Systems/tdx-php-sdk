@@ -22,8 +22,8 @@ class CreateTicket
         protected readonly ?int $estimatedMinutes = null,
         protected readonly ?DateTime $startDate = null,
         protected readonly ?DateTime $endDate = null,
-        protected readonly ?string $reponsibleUid = null,
-        protected readonly ?string $responsibleGroupUid = null,
+        protected readonly ?string $responsibleUid = null,
+        protected readonly ?int $responsibleGroupId = null,
         protected readonly ?float $timeBudget = null,
         protected readonly ?float $expenseBudget = null,
         protected readonly ?int $locationId = null,
@@ -31,7 +31,7 @@ class CreateTicket
         protected readonly ?int $serviceId = null,
         protected readonly ?int $serviceOfferingId = null,
         protected readonly ?int $articleId = null,
-        protected readonly ?int $articleShoutcutId = null,
+        protected readonly ?int $articleShortcutId = null,
         protected readonly array $customAttributes = [],
     ) {
         //
@@ -55,8 +55,8 @@ class CreateTicket
             'EstimatedMinutes' => $this->estimatedMinutes,
             'StartDate' => $this->startDate,
             'EndDate' => $this->endDate,
-            'ResponsibleUid' => $this->reponsibleUid,
-            'ResponsibleGroupUid' => $this->responsibleGroupUid,
+            'ResponsibleUid' => $this->responsibleUid,
+            'ResponsibleGroupID' => $this->responsibleGroupId,
             'TimeBudget' => $this->timeBudget,
             'ExpenseBudget' => $this->expenseBudget,
             'LocationID' => $this->locationId,
@@ -64,7 +64,7 @@ class CreateTicket
             'ServiceID' => $this->serviceId,
             'ServiceOfferingID' => $this->serviceOfferingId,
             'ArticleID' => $this->articleId,
-            'ArticleShortcutID' => $this->articleShoutcutId,
+            'ArticleShortcutID' => $this->articleShortcutId,
             'CustomAttributes' => $this->customAttributes,
         ];
     }
