@@ -33,6 +33,7 @@ class CreateTicket
         protected readonly ?int $articleId = null,
         protected readonly ?int $articleShortcutId = null,
         protected readonly array $customAttributes = [],
+        protected readonly ?bool $isRichHtml = false,
     ) {
         //
     }
@@ -66,6 +67,7 @@ class CreateTicket
             'ArticleID' => $this->articleId,
             'ArticleShortcutID' => $this->articleShortcutId,
             'CustomAttributes' => $this->customAttributes,
+            'IsRichHtml' => $this->isRichHtml,
         ];
     }
 }
