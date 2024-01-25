@@ -9,6 +9,8 @@ use Northwestern\Sysdev\TeamDynamix\Api\Client\TdxClient;
 use Northwestern\Sysdev\TeamDynamix\Api\Entity\General\Application;
 use Northwestern\Sysdev\TeamDynamix\Api\Entity\Response;
 use Northwestern\Sysdev\TeamDynamix\Api\Entity\Ticket\CreateTicket;
+use Northwestern\Sysdev\TeamDynamix\Api\Entity\Ticket\FeedEntry\TicketFeedEntry;
+use Northwestern\Sysdev\TeamDynamix\Api\Entity\Ticket\FeedEntry\TicketFeedEntryResponse;
 use Northwestern\Sysdev\TeamDynamix\Api\Entity\Ticket\TicketResponse;
 
 class Ticket extends TdxClient
@@ -49,6 +51,19 @@ class Ticket extends TdxClient
         );
 
         return TicketResponse::fromResponse($response);
+    }
+
+    /**
+     * @link https://solutions.teamdynamix.com/TDWebApi/Home/section/Tickets#POSTapi/{appId}/tickets/{id}/feed
+     */
+    public function update(int $ticketId, TicketFeedEntry $feedEntry): TicketFeedEntryResponse
+    {
+        $response = $this->post(
+            path: sprintf('/api/%s/tickets/%s/feed', $this->tdxApplication->id, $ticketId),
+            payload: $feedEntry->toArray()
+        );
+
+        return TicketFeedEntryResponse::fromResponse($response);
     }
 
     /**
