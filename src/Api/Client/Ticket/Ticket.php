@@ -59,7 +59,7 @@ class Ticket extends TdxClient
     public function update(int $ticketId, TicketFeedEntry $feedEntry): TicketFeedEntryResponse
     {
         $response = $this->post(
-            path: sprintf('/api/%s/tickets/%s/sla', $this->tdxApplication->id, $ticketId),
+            path: sprintf('/api/%s/tickets/%s/feed', $this->tdxApplication->id, $ticketId),
             payload: $feedEntry->toArray()
         );
 

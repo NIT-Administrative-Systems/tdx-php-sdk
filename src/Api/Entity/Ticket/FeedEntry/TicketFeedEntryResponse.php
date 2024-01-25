@@ -11,13 +11,12 @@ class TicketFeedEntryResponse
     {
         $feedEntryData = json_decode($response->body, true);
 
-        return new self($response->url, $response->rateLimit, $feedEntryData['ID'], $feedEntryData );
+        return new self($response->url, $response->rateLimit, $feedEntryData );
     }
 
     public function __construct(
         public readonly string $url,
         public readonly RateLimit $rateLimit,
-        public readonly int $id,
         public readonly array $data,
     )
     {
