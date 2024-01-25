@@ -57,7 +57,7 @@ Here is the list of APIs that this package covers. The list is organized by the 
   - [x] Ticket Statuses
   - [x] Ticket Tasks
   - [x] Ticket Types
-  - [x] Tickets - *Incomplete*, but creating & getting tickets is supported.
+  - [x] Tickets - *Incomplete*, but creating, updating, & getting tickets is supported.
   - [ ] Urgencies
 
 **Note**: It is unlikely that we will add support for every API on this list. We are open to pull requests!
