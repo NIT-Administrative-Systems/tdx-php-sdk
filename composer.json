@@ -27,8 +27,8 @@
         "guzzlehttp/guzzle": "^7.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^8",
-        "phpunit/phpunit": "^9.5",
+        "orchestra/testbench": "^10",
+        "phpunit/phpunit": "^11",
         "php-coveralls/php-coveralls": "^2.5",
         "laravel/pint": "^1.2"
     },
