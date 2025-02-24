@@ -3,17 +3,14 @@
 namespace Northwestern\SysDev\TeamDynamix\Tests\Laravel;
 
 use Northwestern\Sysdev\TeamDynamix\Api\ApiConfiguration;
+use Northwestern\Sysdev\TeamDynamix\Laravel\TeamDynamixProvider;
 use Northwestern\Sysdev\TeamDynamix\Laravel\TeamDynamixService;
 use Northwestern\SysDev\TeamDynamix\Tests\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/**
- * @coversDefaultClass \Northwestern\Sysdev\TeamDynamix\Laravel\TeamDynamixProvider
- */
+#[CoversClass(TeamDynamixProvider::class)]
 class TeamDynamixProviderTest extends TestCase
 {
-    /**
-     * @covers ::register
-     */
     public function testRegistered(): void
     {
         /** @var ApiConfiguration $config */

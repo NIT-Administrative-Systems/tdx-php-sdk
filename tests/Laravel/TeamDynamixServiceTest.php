@@ -5,27 +5,13 @@ namespace Northwestern\SysDev\TeamDynamix\Tests\Laravel;
 use Lcobucci\JWT\UnencryptedToken;
 use Northwestern\Sysdev\TeamDynamix\Laravel\TeamDynamixService;
 use Northwestern\SysDev\TeamDynamix\Tests\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-/**
- * @coversDefaultClass \Northwestern\Sysdev\TeamDynamix\Laravel\TeamDynamixService
- */
+#[CoversClass(TeamDynamixService::class)]
 class TeamDynamixServiceTest extends TestCase
 {
-    /**
-     * @covers ::applications
-     * @covers ::ticket
-     * @covers ::ticketType
-     * @covers ::ticketStatus
-     * @covers ::ticketPriority
-     * @covers ::serviceCatalog
-     * @covers ::group
-     *
-     * @covers ::freshLogin
-     * @covers ::authToken
-     * @covers ::applicationToId
-     *
-     * @dataProvider getterProvider
-     */
+    #[DataProvider('getterProvider')]
     public function testApiGetters(string $getter): void
     {
         $service = $this->createStub(TeamDynamixService::class);
@@ -34,7 +20,7 @@ class TeamDynamixServiceTest extends TestCase
         $this->assertNotNull($service->$getter());
     }
 
-    public function getterProvider(): array
+    public static function getterProvider(): array
     {
         return [
             ['applications'],
