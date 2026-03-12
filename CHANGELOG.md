@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v0.6.0] - 2026-03-12
 ### Changed
+- The signature of the `Northwestern\Sysdev\TeamDynamix\Api\Client\General\Auth::login()` method has changed. Both arguments were implicit null defaults, but are now `?string`s.
 - Minimum `lcobucci/jwt` version bumped.
 
 ## [v0.5.1] - 2025-02-24
