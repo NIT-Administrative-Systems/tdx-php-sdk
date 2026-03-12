@@ -23,7 +23,7 @@ class Auth extends TdxClient
     /**
      * @link https://solutions.teamdynamix.com/SBTDWebApi/Home/section/Auth#POSTapi/auth/login
      */
-    public function login(string $userName = null, string $password = null): AuthResponse
+    public function login(?string $userName = null, ?string $password = null): AuthResponse
     {
         $userName ??= $this->config->username;
         $password ??= $this->config->password;
